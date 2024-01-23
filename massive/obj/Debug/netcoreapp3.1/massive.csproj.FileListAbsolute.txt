@@ -1,0 +1,14 @@
+C:\Users\Алексей\source\repos\massive\massive\bin\Debug\netcoreapp3.1\massive.exe
+C:\Users\Алексей\source\repos\massive\massive\bin\Debug\netcoreapp3.1\massive.deps.json
+C:\Users\Алексей\source\repos\massive\massive\bin\Debug\netcoreapp3.1\massive.runtimeconfig.json
+C:\Users\Алексей\source\repos\massive\massive\bin\Debug\netcoreapp3.1\massive.runtimeconfig.dev.json
+C:\Users\Алексей\source\repos\massive\massive\bin\Debug\netcoreapp3.1\massive.dll
+C:\Users\Алексей\source\repos\massive\massive\bin\Debug\netcoreapp3.1\massive.pdb
+C:\Users\Алексей\source\repos\massive\massive\obj\Debug\netcoreapp3.1\massive.csproj.AssemblyReference.cache
+C:\Users\Алексей\source\repos\massive\massive\obj\Debug\netcoreapp3.1\massive.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Алексей\source\repos\massive\massive\obj\Debug\netcoreapp3.1\massive.AssemblyInfoInputs.cache
+C:\Users\Алексей\source\repos\massive\massive\obj\Debug\netcoreapp3.1\massive.AssemblyInfo.cs
+C:\Users\Алексей\source\repos\massive\massive\obj\Debug\netcoreapp3.1\massive.csproj.CoreCompileInputs.cache
+C:\Users\Алексей\source\repos\massive\massive\obj\Debug\netcoreapp3.1\massive.dll
+C:\Users\Алексей\source\repos\massive\massive\obj\Debug\netcoreapp3.1\massive.pdb
+C:\Users\Алексей\source\repos\massive\massive\obj\Debug\netcoreapp3.1\massive.genruntimeconfig.cache
