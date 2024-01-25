@@ -19,11 +19,11 @@ namespace massive
                 RndFill(kolstr, kolstlb);
             }
         }
-
+        int[,] array;
 
         private void RndFill(int kolstr, int kolstlb)
         {
-            int[,] array = new int[ kolstr, kolstlb];
+            array = new int[ kolstr, kolstlb];
             int sum = 0;
 
             for (int i = 0; i < kolstr; i++)
@@ -36,22 +36,19 @@ namespace massive
 
                     sum += y;
                 }
-                
 
             }
 
             Console.WriteLine("Ответ на задачу первую  двумерных");
 
             Console.WriteLine(sum / (kolstlb*kolstr));
-
-            first(array);
         }
 
 
         private void UserFill(int kolstr, int kolstlb)
         {
 
-            int[,] array = new int[ kolstr,  kolstlb];
+            array = new int[ kolstr,  kolstlb];
 
             int sum = 0;
 
@@ -73,10 +70,10 @@ namespace massive
 
             Console.WriteLine(sum / (kolstr*kolstlb));
 
-            first(array);
+            
         }
-
-        private void first(int [,] array)
+        
+        public void first()
         {
             Console.WriteLine("Обычная матрица");
 

@@ -11,6 +11,8 @@ namespace massive
             Console.WriteLine("Введите кол-во элементов");
             int kol = int.Parse(Console.ReadLine());
             Odnome odnom = new Odnome(fl, kol);
+            odnom.cecond();
+            odnom.trird();
             Console.WriteLine("Выберите заполнять самостоятельно или рандомно двумерные массивы(True или False)");
             bool fld = bool.Parse(Console.ReadLine());
             Console.WriteLine("Введите кол-во строк для двумерных");
@@ -18,11 +20,14 @@ namespace massive
             Console.WriteLine("Введите кол-во столбцов для двумерных");
             int kolstlb = int.Parse(Console.ReadLine());
             Dvumer clas = new Dvumer(fld, kolstr, kolstlb);
+            clas.first();
             Console.WriteLine("Выберите заполнять самостоятельно или рандомно трехмерные массивы(True или False)");
             bool fls = bool.Parse(Console.ReadLine());
             Console.WriteLine("Введите кол-во строк для трехмерных");
             int kolstrs = int.Parse(Console.ReadLine());
             Stupen st = new Stupen(fls, kolstrs);
+            st.first();
+            st.second();
         }
     }
 

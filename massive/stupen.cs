@@ -20,10 +20,10 @@ namespace massive
             }
         }
 
-
+        int[][] array;
         private void RndFill(int len)
         {
-            int[][] array = new int[len][];
+            array = new int[len][];
             int sum = 0;
             int kol = 0;
             for (int i = 0; i < len; i++)
@@ -44,15 +44,14 @@ namespace massive
 
             Console.WriteLine("Ответ на задачу первую трехмерных");
             Console.WriteLine(sum / kol);
-            first(array);
-            second(array);
+            
         }
 
 
         private void UserFill(int len)
         {
 
-            int[][] array = new int[len][];
+            array = new int[len][];
             int sum = 0;
             int kol = 0;
             for (int i = 0; i < len; i++)
@@ -72,10 +71,9 @@ namespace massive
 
             Console.WriteLine("Ответ на первую задачу трехмерных");
             Console.WriteLine(sum / kol);
-            first(array);
-            second(array);
+
         }
-        private void first(int[][] array)
+        public void first()
         {
             for(int i=0; i<array.Length; i++)
             {
@@ -88,7 +86,7 @@ namespace massive
                 Console.WriteLine("Среднее значение " + i + " вложеннлого массива = "+ sum);
             }
         }
-        private void second(int[][] array)
+        public void second()
         {
             int pro = 1;
             for (int i = 0; i < array.Length; i++)

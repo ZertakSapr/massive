@@ -20,10 +20,10 @@ namespace massive
             }
         }
 
-
+        int[] array;
         private void RndFill(int len)
         {
-            int[] array = new int[len];
+            array = new int[len];
             int sum = 0;
 
             for (int i = 0; i < len; i++)
@@ -36,8 +36,7 @@ namespace massive
 
             Console.WriteLine("Ответ на задачу первую одномерных");
             Console.WriteLine(sum / len);
-            cecond(array);
-            trird(array);
+            
 
         }
 
@@ -45,7 +44,7 @@ namespace massive
         private void UserFill(int len)
         {
 
-            int[] array = new int[len];
+            array = new int[len];
             int sum = 0;
 
             for (int i = 0; i < len; i++)
@@ -58,17 +57,17 @@ namespace massive
 
             Console.WriteLine("Ответ на первую задачу одномерных");
             Console.WriteLine(sum / len);
-            cecond(array);
-            trird(array);
+            
         }
 
 
-        static void cecond(int[] array1)
+        public void cecond()
         {
             int kol = 0;
-            for (int i = 0; i < array1.Length; i++)
+            int y = 0;
+            for (int i = 0; i < array.Length; i++)
             {
-                if (array1[i] < 100 && array1[i] > -100)
+                if (array[i] < 100 & array[i] > -100)
                 {
                     kol++;
                 }
@@ -81,16 +80,18 @@ namespace massive
             }
             else
             {
-                for (int j = 0; j < array1.Length; j++)
+                for (int j = 0; j < kol; j++)
                 {
-                    if (array1[j] < 100 || array1[j] > -100)
+                    if (array[j] < 100 & array[j] > -100)
                     {
-                        final[j] = array1[j];
+
+                        final[y] = array[j];
+                        y++;
                     }
 
                 }
                 Console.WriteLine("Ответ на вторую задачу одномерных");
-                for (int g = 0; g < array1.Length; g++)
+                for (int g = 0; g < kol; g++)
                 {
                     Console.WriteLine(final[g]);
                 }
@@ -100,23 +101,23 @@ namespace massive
 
 
 
-        static void trird(int[] array2)
+        public void trird()
         {
             int fl = 0;
             int kol = 0;
-            int[] arrayel = new int[array2.Length];
-            for (int i = 0; i < array2.Length; i++)
+            int[] arrayel = new int[array.Length];
+            for (int i = 0; i < array.Length; i++)
             {
-                for (int j = 0; j < array2.Length; j++)
+                for (int j = 0; j < array.Length; j++)
                 {
-                    if (array2[i] == arrayel[j])
+                    if (array[i] == arrayel[j])
                     {
                         fl++;
                     }
                 }
                 if (fl < 1)
                 {
-                    arrayel[kol] = array2[i];
+                    arrayel[kol] = array[i];
                     kol++;
                 }
                 fl = 0;
