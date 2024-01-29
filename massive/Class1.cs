@@ -7,9 +7,11 @@ namespace massive
     class Dvumer
     {
         Random rnd = new Random();
+        int[,] array;
 
         public Dvumer(bool flag, int kolstr, int kolstlb)
         {
+            array = new int[kolstr, kolstlb];
             if (flag)
             {
                 UserFill(kolstr, kolstlb);
@@ -19,11 +21,11 @@ namespace massive
                 RndFill(kolstr, kolstlb);
             }
         }
-        int[,] array;
+        
 
         private void RndFill(int kolstr, int kolstlb)
         {
-            array = new int[ kolstr, kolstlb];
+            
             int sum = 0;
 
             for (int i = 0; i < kolstr; i++)
@@ -48,7 +50,7 @@ namespace massive
         private void UserFill(int kolstr, int kolstlb)
         {
 
-            array = new int[ kolstr,  kolstlb];
+            
 
             int sum = 0;
 
@@ -72,7 +74,19 @@ namespace massive
 
             
         }
-        
+        public void recreate(bool flag, int kolstr, int kolstl)
+        {
+            
+            array= new int[kolstr, kolstl];
+            if (flag)
+            {
+                UserFill(kolstr, kolstl);
+            }
+            else
+            {
+                RndFill(kolstr,kolstl);
+            }
+        }
         public void first()
         {
             Console.WriteLine("Обычная матрица");

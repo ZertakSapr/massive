@@ -7,9 +7,10 @@ namespace massive
     public class Odnome
     {
         Random rnd = new Random();
-
+        int[] array;
         public Odnome(bool flag, int len)
         {
+            array = new int[len];
             if (flag)
             {
                 UserFill(len);
@@ -20,10 +21,22 @@ namespace massive
             }
         }
 
-        int[] array;
-        private void RndFill(int len)
+        
+        public void recreate(bool flag, int len)
         {
             array = new int[len];
+            if (flag)
+            {
+                UserFill(len);
+            }
+            else
+            {
+                RndFill(len);
+            }
+        }
+        private void RndFill(int len)
+        {
+            
             int sum = 0;
 
             for (int i = 0; i < len; i++)
@@ -44,7 +57,7 @@ namespace massive
         private void UserFill(int len)
         {
 
-            array = new int[len];
+            
             int sum = 0;
 
             for (int i = 0; i < len; i++)
