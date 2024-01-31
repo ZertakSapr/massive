@@ -11,26 +11,12 @@ namespace massive
         public Stupen(bool flag, int len)
         {
             array = new int[len][];
-            if (flag)
-            {
-                UserFill(len);
-            }
-            else
-            {
-                RndFill(len);
-            }
+            choice(flag, len);
         }
         public void recreate(bool flag, int len)
         {
             array = new int[len][];
-            if (flag)
-            {
-                UserFill(len);
-            }
-            else
-            {
-                RndFill(len);
-            }
+            choice(flag, len);
         }
         
         private void RndFill(int len)
@@ -128,6 +114,17 @@ namespace massive
 
             }
 
+        }
+        private void choice(bool choice, int kolstr)
+        {
+            if (choice)
+            {
+                UserFill(kolstr);
+            }
+            else
+            {
+                RndFill(kolstr);
+            }
         }
     }
 }

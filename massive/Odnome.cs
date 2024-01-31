@@ -11,28 +11,14 @@ namespace massive
         public Odnome(bool flag, int len)
         {
             array = new int[len];
-            if (flag)
-            {
-                UserFill(len);
-            }
-            else
-            {
-                RndFill(len);
-            }
+            choice(flag, len);
         }
 
         
         public void recreate(bool flag, int len)
         {
             array = new int[len];
-            if (flag)
-            {
-                UserFill(len);
-            }
-            else
-            {
-                RndFill(len);
-            }
+            choice(flag, len);
         }
         private void RndFill(int len)
         {
@@ -110,10 +96,6 @@ namespace massive
                 }
             }
         }
-
-
-
-
         public void trird()
         {
             int fl = 0;
@@ -146,15 +128,17 @@ namespace massive
                 Console.WriteLine(final[h]);
             }
         }
-
-
-
-
-
-
-
-
-
+        private void choice(bool choice, int kolstr)
+        {
+            if (choice)
+            {
+                UserFill(kolstr);
+            }
+            else
+            {
+                RndFill(kolstr);
+            }
+        }
     }
 }
 

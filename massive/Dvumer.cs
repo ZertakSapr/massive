@@ -12,14 +12,7 @@ namespace massive
         public Dvumer(bool flag, int kolstr, int kolstlb)
         {
             array = new int[kolstr, kolstlb];
-            if (flag)
-            {
-                UserFill(kolstr, kolstlb);
-            }
-            else
-            {
-                RndFill(kolstr, kolstlb);
-            }
+            choice(flag, kolstr, kolstlb);
         }
         
 
@@ -78,14 +71,7 @@ namespace massive
         {
             
             array= new int[kolstr, kolstl];
-            if (flag)
-            {
-                UserFill(kolstr, kolstl);
-            }
-            else
-            {
-                RndFill(kolstr,kolstl);
-            }
+            choice(flag, kolstr, kolstl);
         }
         public void first()
         {
@@ -125,6 +111,17 @@ namespace massive
                 }
                 
                 Console.WriteLine(final);
+            }
+        }
+        private void choice(bool choice, int kolstr,int kolstl)
+        {
+            if (choice)
+            {
+                UserFill(kolstr, kolstl);
+            }
+            else
+            {
+                RndFill(kolstr, kolstl);
             }
         }
 
