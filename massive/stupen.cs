@@ -7,10 +7,9 @@ namespace massive
     class Stupen
     {
         Random rnd = new Random();
-        int[][] array;
+        private int[][] array;
         public Stupen(bool flag, int len)
         {
-            
             choice(flag, len);
         }
         public void recreate(bool flag, int len)
@@ -21,7 +20,6 @@ namespace massive
         
         private void RndFill(int len)
         {
-           
             int sum = 0;
             int kol = 0;
             for (int i = 0; i < len; i++)
@@ -36,20 +34,14 @@ namespace massive
                     sum += y;
                     kol += 1;
                 }
-                
-
             }
-
             Console.WriteLine("Ответ на задачу первую трехмерных");
             Console.WriteLine(sum / kol);
-            
         }
 
 
         private void UserFill(int len)
         {
-
-            
             int sum = 0;
             int kol = 0;
             for (int i = 0; i < len; i++)
@@ -69,7 +61,6 @@ namespace massive
 
             Console.WriteLine("Ответ на первую задачу трехмерных");
             Console.WriteLine(sum / kol);
-
         }
         public void first()
         {
@@ -112,13 +103,13 @@ namespace massive
                     final += array[i][j] + " ";
                 }
                 Console.WriteLine(final);
-
             }
 
         }
+
         private void choice(bool choice, int kolstr)
         {
-            array = new int[len][];
+            array = new int[kolstr][];
             if (choice)
             {
                 UserFill(kolstr);

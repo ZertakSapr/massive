@@ -7,10 +7,9 @@ namespace massive
     public class Odnome
     {
         Random rnd = new Random();
-        int[] array;
+        private int[] array;
         public Odnome(bool flag, int len)
         {
-            
             choice(flag, len);
         }
 
@@ -22,9 +21,7 @@ namespace massive
         }
         private void RndFill(int len)
         {
-            
             int sum = 0;
-
             for (int i = 0; i < len; i++)
             {
                 int y = rnd.Next(-1000, 1000);
@@ -32,18 +29,13 @@ namespace massive
                 sum += y;
 
             }
-
             Console.WriteLine("Ответ на задачу первую одномерных");
             Console.WriteLine(sum / len);
-            
-
         }
 
 
         private void UserFill(int len)
         {
-
-            
             int sum = 0;
 
             for (int i = 0; i < len; i++)
@@ -128,7 +120,7 @@ namespace massive
                 Console.WriteLine(final[h]);
             }
         }
-
+        
         private void choice(bool choice, int kolstr)
         {
             array = new int[kolstr];

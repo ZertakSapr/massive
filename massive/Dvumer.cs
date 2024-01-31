@@ -7,7 +7,7 @@ namespace massive
     class Dvumer
     {
         Random rnd = new Random();
-        int[,] array;
+        private int[,] array;
 
         public Dvumer(bool flag, int kolstr, int kolstlb)
         {
