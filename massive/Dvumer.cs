@@ -11,7 +11,7 @@ namespace massive
 
         public Dvumer(bool flag, int kolstr, int kolstlb)
         {
-            array = new int[kolstr, kolstlb];
+            
             choice(flag, kolstr, kolstlb);
         }
         
@@ -70,7 +70,7 @@ namespace massive
         public void recreate(bool flag, int kolstr, int kolstl)
         {
             
-            array= new int[kolstr, kolstl];
+            
             choice(flag, kolstr, kolstl);
         }
         public void first()
@@ -115,6 +115,7 @@ namespace massive
         }
         private void choice(bool choice, int kolstr,int kolstl)
         {
+            array = new int[kolstr, kolstl];
             if (choice)
             {
                 UserFill(kolstr, kolstl);

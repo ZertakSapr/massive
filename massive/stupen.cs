@@ -10,12 +10,12 @@ namespace massive
         int[][] array;
         public Stupen(bool flag, int len)
         {
-            array = new int[len][];
+            
             choice(flag, len);
         }
         public void recreate(bool flag, int len)
         {
-            array = new int[len][];
+            
             choice(flag, len);
         }
         
@@ -84,6 +84,7 @@ namespace massive
                 Console.WriteLine("Среднее значение " + i + " вложеннлого массива = "+ sum/array[i].Length);
             }
         }
+
         public void second()
         {
             int pro = 1;
@@ -117,6 +118,7 @@ namespace massive
         }
         private void choice(bool choice, int kolstr)
         {
+            array = new int[len][];
             if (choice)
             {
                 UserFill(kolstr);

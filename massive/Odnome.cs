@@ -10,14 +10,14 @@ namespace massive
         int[] array;
         public Odnome(bool flag, int len)
         {
-            array = new int[len];
+            
             choice(flag, len);
         }
 
         
         public void recreate(bool flag, int len)
         {
-            array = new int[len];
+            
             choice(flag, len);
         }
         private void RndFill(int len)
@@ -128,8 +128,10 @@ namespace massive
                 Console.WriteLine(final[h]);
             }
         }
+
         private void choice(bool choice, int kolstr)
         {
+            array = new int[kolstr];
             if (choice)
             {
                 UserFill(kolstr);
