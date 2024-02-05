@@ -4,58 +4,50 @@ using System.Text;
 
 namespace massive
 {
-    class Dvumer
+    class TwoDimensions
     {
-        Random rnd = new Random();
+        private Random _rnd;
+
         private int[,] array;
 
-        public Dvumer(bool flag, int kolstr, int kolstlb)
+        public TwoDimensions(bool flag, int rowCount, int columnCount, Random rnd)
         {
-            
-            choice(flag, kolstr, kolstlb);
+            _rnd = rnd;
+            InitializationType(flag, rowCount, columnCount);
         }
-        
 
-        private void RndFill(int kolstr, int kolstlb)
+
+        private void RndFill()
         {
-            
             int sum = 0;
-
-            for (int i = 0; i < kolstr; i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for(int j=0; j<kolstlb; j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    int y = rnd.Next(-1000, 1000);
-
-                    array[i,j] = y;
-
+                    int y = _rnd.Next(-1000, 1000);
+                    array[i, j] = y;
                     sum += y;
                 }
-
             }
 
             Console.WriteLine("Ответ на задачу первую  двумерных");
 
-            Console.WriteLine(sum / (kolstlb*kolstr));
+            Console.WriteLine(sum / (array.GetLength(0) * array.GetLength(1)));
         }
 
 
-        private void UserFill(int kolstr, int kolstlb)
+        private void UserFill()
         {
-
-            
-
             int sum = 0;
-
-            for (int i = 0; i < kolstr; i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
-                for(int j=0; j< kolstlb; j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
                     Console.WriteLine("Введите элемент");
 
                     int l = int.Parse(Console.ReadLine());
 
-                    array[i,j] = l;
+                    array[i, j] = l;
 
                     sum += l;
 
@@ -63,27 +55,24 @@ namespace massive
             }
             Console.WriteLine("Ответ на первую задачу двумерных");
 
-            Console.WriteLine(sum / (kolstr*kolstlb));
+            Console.WriteLine(sum / (array.GetLength(0) * array.GetLength(1)));
+        }
 
-            
-        }
-        public void recreate(bool flag, int kolstr, int kolstl)
+        public void Recreate(bool flag, int rowCount, int columnCount)
         {
-            
-            
-            choice(flag, kolstr, kolstl);
+            InitializationType(flag, rowCount, columnCount);
         }
-        public void first()
+
+        public void Matrices()
         {
             Console.WriteLine("Обычная матрица");
-
-            for(int i =0; i<array.GetLength(0); i++)
+            for (int i = 0; i < array.GetLength(0); i++)
             {
                 string final = "";
 
-                for(int j=0; j<array.GetLength(1); j++)
+                for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    final += array[i, j]+" ";
+                    final += array[i, j] + " ";
                 }
 
                 Console.WriteLine(final);
@@ -95,11 +84,11 @@ namespace massive
                 string final = "";
                 if (i % 2 == 1)
                 {
-                    for (int j = array.GetLength(1)-1; j >=0; j--)
+                    for (int j = array.GetLength(1) - 1; j >= 0; j--)
                     {
                         final += array[i, j] + " ";
                     }
-                    
+
                 }
                 else
                 {
@@ -107,22 +96,22 @@ namespace massive
                     {
                         final += array[i, j] + " ";
                     }
-                    
+
                 }
-                
                 Console.WriteLine(final);
             }
         }
-        private void choice(bool choice, int kolstr,int kolstl)
+
+        private void InitializationType(bool flag, int rowCount, int columnCount)
         {
-            array = new int[kolstr, kolstl];
-            if (choice)
+            array = new int[rowCount, columnCount];
+            if (flag)
             {
-                UserFill(kolstr, kolstl);
+                UserFill();
             }
             else
             {
-                RndFill(kolstr, kolstl);
+                RndFill();
             }
         }
 

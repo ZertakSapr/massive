@@ -4,41 +4,44 @@ using System.Text;
 
 namespace massive
 {
-    public class Odnome
+    public class OneDimensions
     {
-        Random rnd = new Random();
+        private Random _rnd;
+
         private int[] array;
-        public Odnome(bool flag, int len)
+
+        public OneDimensions(bool flag, int len, Random rnd)
         {
-            choice(flag, len);
+            _rnd = rnd;
+            InitializationType(flag, len);
         }
 
-        
-        public void recreate(bool flag, int len)
+
+        public void Recreate(bool flag, int len)
         {
-            
-            choice(flag, len);
+            InitializationType(flag, len);
         }
-        private void RndFill(int len)
+
+        private void RndFill()
         {
             int sum = 0;
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < array.Length; i++)
             {
-                int y = rnd.Next(-1000, 1000);
+                int y = _rnd.Next(-1000, 1000);
                 array[i] = y;
                 sum += y;
-
             }
             Console.WriteLine("Ответ на задачу первую одномерных");
-            Console.WriteLine(sum / len);
+
+            Console.WriteLine(sum / array.Length);
         }
 
 
-        private void UserFill(int len)
+        private void UserFill()
         {
             int sum = 0;
 
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("Введите элемент");
                 int l = int.Parse(Console.ReadLine());
@@ -47,48 +50,48 @@ namespace massive
             }
 
             Console.WriteLine("Ответ на первую задачу одномерных");
-            Console.WriteLine(sum / len);
-            
+
+            Console.WriteLine(sum / array.Length);
         }
 
 
-        public void cecond()
+        public void Massiveunder100()
         {
-            int kol = 0;
+            int count = 0;
             int y = 0;
             for (int i = 0; i < array.Length; i++)
             {
                 if (array[i] < 100 & array[i] > -100)
                 {
-                    kol++;
+                    count++;
                 }
             }
-            int[] final = new int[kol];
-            if (kol == 0)
+            int[] final = new int[count];
+            if (count == 0)
             {
                 Console.WriteLine("Ответ на вторую задачу одномерных");
                 Console.WriteLine("Массив пустой");
             }
             else
             {
-                for (int j = 0; j < kol; j++)
+                for (int j = 0; j < final.Length; j++)
                 {
                     if (array[j] < 100 & array[j] > -100)
                     {
-
                         final[y] = array[j];
                         y++;
                     }
 
                 }
                 Console.WriteLine("Ответ на вторую задачу одномерных");
-                for (int g = 0; g < kol; g++)
+                for (int g = 0; g < final.Length; g++)
                 {
                     Console.WriteLine(final[g]);
                 }
             }
         }
-        public void trird()
+
+        public void NotRepeatMassive()
         {
             int fl = 0;
             int kol = 0;
@@ -110,27 +113,27 @@ namespace massive
                 fl = 0;
             }
             int[] final = new int[kol];
-            for (int u = 0; u < kol; u++)
+            for (int u = 0; u < final.Length; u++)
             {
                 final[u] = arrayel[u];
             }
             Console.WriteLine("Ответ на третью задачу одномерных");
-            for (int h = 0; h < kol; h++)
+            for (int h = 0; h < final.Length; h++)
             {
                 Console.WriteLine(final[h]);
             }
         }
-        
-        private void choice(bool choice, int kolstr)
+
+        private void InitializationType(bool flag, int rowCount)
         {
-            array = new int[kolstr];
-            if (choice)
+            array = new int[rowCount];
+            if (flag)
             {
-                UserFill(kolstr);
+                UserFill();
             }
             else
             {
-                RndFill(kolstr);
+                RndFill();
             }
         }
     }

@@ -4,52 +4,55 @@ using System.Text;
 
 namespace massive
 {
-    class Stupen
+    class StepDimensional
     {
-        Random rnd = new Random();
+        private Random _rnd;
+
         private int[][] array;
-        public Stupen(bool flag, int len)
+
+        public StepDimensional(bool flag, int len, Random rnd)
         {
-            choice(flag, len);
+            _rnd = rnd;
+            InitializationalType(flag, len);
         }
-        public void recreate(bool flag, int len)
-        {
-            
-            choice(flag, len);
+
+        public void Recreate(bool flag, int len)
+        { 
+            InitializationalType(flag, len);
         }
         
-        private void RndFill(int len)
+        private void RndFill()
         {
             int sum = 0;
-            int kol = 0;
-            for (int i = 0; i < len; i++)
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("Напишите кол во элементов  строке трехмерных");
                 int lengthstroki = int.Parse(Console.ReadLine());
                 array[i] = new int[lengthstroki];
-                for(int j=0; j<lengthstroki; j++)
+                for(int j=0; j<array[i].Length; j++)
                 {
-                    int y = rnd.Next(-1000, 1000);
+                    int y = _rnd.Next(-1000, 1000);
                     array[i][j] = y;
                     sum += y;
-                    kol += 1;
+                    count += 1;
                 }
             }
             Console.WriteLine("Ответ на задачу первую трехмерных");
-            Console.WriteLine(sum / kol);
+            Console.WriteLine(sum / count);
         }
 
 
-        private void UserFill(int len)
+        private void UserFill()
         {
             int sum = 0;
             int kol = 0;
-            for (int i = 0; i < len; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("Напишите кол во элементов  строке трехмерных");
-                int lengthstroki = int.Parse(Console.ReadLine());
-                array[i] = new int[lengthstroki];
-                for (int j = 0; j < lengthstroki; j++)
+                int innerArrayLength = int.Parse(Console.ReadLine());
+                array[i] = new int[innerArrayLength];
+                for (int j = 0; j < array[i].Length; j++)
                 {
                     Console.WriteLine("Введите элемент");
                     int l = int.Parse(Console.ReadLine());
@@ -62,34 +65,22 @@ namespace massive
             Console.WriteLine("Ответ на первую задачу трехмерных");
             Console.WriteLine(sum / kol);
         }
-        public void first()
+
+        public void Avarage()
         {
             for(int i=0; i<array.Length; i++)
             {
                 int sum = 0;
-                
                 for(int j=0; j<array[i].Length; j++)
                 {
                     sum += array[i][j];
                 }
-                Console.WriteLine("Среднее значение " + i + " вложеннлого массива = "+ sum/array[i].Length);
+                Console.WriteLine("Среднее значение " + i + " вложенного массива = "+ sum/array[i].Length);
             }
         }
 
-        public void second()
+        public void Matrice()
         {
-            int pro = 1;
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array[i].Length; j++)
-                {
-                    if (array[i][j] % 2 == 0)
-                    {
-                        pro = pro * j;
-                    }
-                }
- 
-            }
             Console.WriteLine("Измененная матрица для третьего задания");
             for (int i = 0; i < array.Length; i++)
             {
@@ -98,25 +89,24 @@ namespace massive
                 {
                     if (array[i][j] % 2 == 0)
                     {
-                        array[i][j]=pro;
+                        array[i][j]= i*j;
                     }
                     final += array[i][j] + " ";
                 }
                 Console.WriteLine(final);
             }
-
         }
 
-        private void choice(bool choice, int kolstr)
+        private void InitializationalType(bool choice, int rowCount)
         {
-            array = new int[kolstr][];
+            array = new int[rowCount][];
             if (choice)
             {
-                UserFill(kolstr);
+                UserFill();
             }
             else
             {
-                RndFill(kolstr);
+                RndFill();
             }
         }
     }
