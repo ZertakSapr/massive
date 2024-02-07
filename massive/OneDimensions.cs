@@ -6,13 +6,13 @@ namespace massive
 {
     public class OneDimensions
     {
-        private Random _rnd;
+        private static Random rnd = new Random();
 
         private int[] array;
 
-        public OneDimensions(bool flag, int len, Random rnd)
+        public OneDimensions(bool flag, int len)
         {
-            _rnd = rnd;
+            
             InitializationType(flag, len);
         }
 
@@ -24,34 +24,23 @@ namespace massive
 
         private void RndFill()
         {
-            int sum = 0;
             for (int i = 0; i < array.Length; i++)
             {
-                int y = _rnd.Next(-1000, 1000);
+                int y = rnd.Next(-1000, 1000);
                 array[i] = y;
-                sum += y;
-            }
-            Console.WriteLine("Ответ на задачу первую одномерных");
-
-            Console.WriteLine(sum / array.Length);
+            } 
         }
 
 
         private void UserFill()
         {
-            int sum = 0;
-
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("Введите элемент");
                 int l = int.Parse(Console.ReadLine());
                 array[i] = l;
-                sum += l;
-            }
 
-            Console.WriteLine("Ответ на первую задачу одномерных");
-
-            Console.WriteLine(sum / array.Length);
+            } 
         }
 
 
@@ -135,6 +124,27 @@ namespace massive
             {
                 RndFill();
             }
+        }
+        
+        public void PrintOne()
+        {
+            Console.WriteLine("Вывод массива");
+            for (int i=0; i<array.Length; i++)
+            {
+                Console.WriteLine(array[i]);
+            }
+        }
+
+        public void AvarageOne()
+        {
+            int sum = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                sum += array[i];
+                
+            }
+            Console.WriteLine("Ответ на задачу первую одномерных");
+            Console.WriteLine(sum / array.Length);
         }
     }
 }

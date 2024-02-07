@@ -6,39 +6,31 @@ namespace massive
 {
     class TwoDimensions
     {
-        private Random _rnd;
+        private static Random rnd = new Random();
 
         private int[,] array;
 
-        public TwoDimensions(bool flag, int rowCount, int columnCount, Random rnd)
+        public TwoDimensions(bool flag, int rowCount, int columnCount)
         {
-            _rnd = rnd;
             InitializationType(flag, rowCount, columnCount);
         }
 
 
         private void RndFill()
         {
-            int sum = 0;
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
                 {
-                    int y = _rnd.Next(-1000, 1000);
+                    int y = rnd.Next(-1000, 1000);
                     array[i, j] = y;
-                    sum += y;
                 }
             }
-
-            Console.WriteLine("Ответ на задачу первую  двумерных");
-
-            Console.WriteLine(sum / (array.GetLength(0) * array.GetLength(1)));
         }
 
 
         private void UserFill()
         {
-            int sum = 0;
             for (int i = 0; i < array.GetLength(0); i++)
             {
                 for (int j = 0; j < array.GetLength(1); j++)
@@ -49,13 +41,9 @@ namespace massive
 
                     array[i, j] = l;
 
-                    sum += l;
 
                 }
             }
-            Console.WriteLine("Ответ на первую задачу двумерных");
-
-            Console.WriteLine(sum / (array.GetLength(0) * array.GetLength(1)));
         }
 
         public void Recreate(bool flag, int rowCount, int columnCount)
@@ -113,6 +101,32 @@ namespace massive
             {
                 RndFill();
             }
+        }
+
+        public void PrintTwo()
+        {
+            Console.WriteLine("Вывод массива");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for(int j=0; j<array.GetLength(1); j++)
+                {
+                    Console.WriteLine(array[i,j]);
+                }
+            }     
+        }
+
+        public void AvarageTwo()
+        {
+            int sum = 0;
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    sum += array[i, j];
+                }
+            }
+            Console.WriteLine("Среднее значение двумерных");
+            Console.WriteLine(sum / array.Length);
         }
 
     }

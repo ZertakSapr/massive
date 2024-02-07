@@ -6,47 +6,40 @@ namespace massive
 {
     class StepDimensional
     {
-        private Random _rnd;
+        private static Random rnd = new Random();
 
         private int[][] array;
 
-        public StepDimensional(bool flag, int len, Random rnd)
+        public StepDimensional(bool flag, int len)
         {
-            _rnd = rnd;
+
             InitializationalType(flag, len);
         }
 
         public void Recreate(bool flag, int len)
-        { 
+        {
             InitializationalType(flag, len);
         }
-        
+
         private void RndFill()
         {
-            int sum = 0;
-            int count = 0;
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("Напишите кол во элементов  строке трехмерных");
                 int lengthstroki = int.Parse(Console.ReadLine());
                 array[i] = new int[lengthstroki];
-                for(int j=0; j<array[i].Length; j++)
+                for (int j = 0; j < array[i].Length; j++)
                 {
-                    int y = _rnd.Next(-1000, 1000);
+                    int y = rnd.Next(-1000, 1000);
                     array[i][j] = y;
-                    sum += y;
-                    count += 1;
+
                 }
             }
-            Console.WriteLine("Ответ на задачу первую трехмерных");
-            Console.WriteLine(sum / count);
         }
 
 
         private void UserFill()
         {
-            int sum = 0;
-            int kol = 0;
             for (int i = 0; i < array.Length; i++)
             {
                 Console.WriteLine("Напишите кол во элементов  строке трехмерных");
@@ -57,25 +50,21 @@ namespace massive
                     Console.WriteLine("Введите элемент");
                     int l = int.Parse(Console.ReadLine());
                     array[i][j] = l;
-                    sum += l;
-                    kol += 1;
+
                 }
             }
-
-            Console.WriteLine("Ответ на первую задачу трехмерных");
-            Console.WriteLine(sum / kol);
         }
 
         public void Avarage()
         {
-            for(int i=0; i<array.Length; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 int sum = 0;
-                for(int j=0; j<array[i].Length; j++)
+                for (int j = 0; j < array[i].Length; j++)
                 {
                     sum += array[i][j];
                 }
-                Console.WriteLine("Среднее значение " + i + " вложенного массива = "+ sum/array[i].Length);
+                Console.WriteLine("Среднее значение " + i + " вложенного массива = " + sum / array[i].Length);
             }
         }
 
@@ -89,7 +78,7 @@ namespace massive
                 {
                     if (array[i][j] % 2 == 0)
                     {
-                        array[i][j]= i*j;
+                        array[i][j] = i * j;
                     }
                     final += array[i][j] + " ";
                 }
@@ -107,6 +96,35 @@ namespace massive
             else
             {
                 RndFill();
+            }
+        }
+
+        public void PrintStep()
+        {
+            Console.WriteLine("Вывод массива");
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    Console.WriteLine(array[i][j]);
+                }
+                    
+            }
+        }
+
+        public void AvarageStep()
+        {
+            int sum = 0;
+            int count = 0;
+            Console.WriteLine("Вывод массива");
+            for (int i = 0; i < array.Length; i++)
+            {
+                for (int j = 0; j < array[i].Length; j++)
+                {
+                    sum+=array[i][j];
+                    count += 1;
+                }
+                Console.WriteLine(sum / count);
             }
         }
     }
